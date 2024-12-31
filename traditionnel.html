@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traditional MORRIQUA
+  </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <link rel="icon" type="image/png" href="image/splash_logo.jpg"> -->
+  <link rel="icon" type="image/png" href="image/splash_logo.png">
+  <link rel="stylesheet" href="styles/traditionnel.css">
+<script src="./javascript/traditionnal.js"></script>
+</head>
+<body class="bg-gray-100">
+  <!-- Navbar -->
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="home.html" class="text-2xl font-bold" style="color: #2a443f;">MORRIQUA</a>
+      <nav class="hidden md:flex space-x-6">
+        <!-- <a href="#" class="text-gray-600 hover:text-[#2a443f]">New Arrivals</a> -->
+        <!-- <a href="#" class="text-gray-600 hover:text-[#2a443f]">Top Sellers</a> -->
+        <a href="Moderne.html" class="text-gray-600 hover:text-[#2a443f]">Modern</a>
+        <a href="traditionnel.html" class="text-gray-600 hover:text-[#2a443f]">Traditional</a>
+      </nav>
+      <div class="flex items-center space-x-4">
+        <div class="menu-icons">
+          <a href="#">
+              <img src="image/location.png" alt="Adresse">
+          </a>
+          
+          <div class="account-menu-container">
+              <a href="Account.html">
+                  <img src="image/user.png" alt="Profil" class="account-icon">
+              </a>
+          </div>
+          <a href="#">
+              <img src="image/Heart.png" alt="Favoris">
+          </a>
+          <a href="payment.html">
+              <img src="image/shopping.png" alt="Panier">
+          </a>    
+      </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sub-navbar -->
+  <div class="bg-gray-50 py-3 shadow-sm">
+    <div class="container mx-auto px-4 flex flex-wrap justify-between items-center">
+      <div class="flex space-x-4">
+        <!-- Size Dropdown -->
+        <div class="relative">
+          <button onclick="toggleSizeMenu()" class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300">Size</button>
+          <div id="size-menu" class="hidden absolute bg-white shadow-lg rounded mt-2 py-2 w-32 z-10">
+            <button onclick="filterBySize('S')" class="w-full text-left px-4 py-2 hover:bg-gray-200">S</button>
+            <button onclick="filterBySize('M')" class="w-full text-left px-4 py-2 hover:bg-gray-200">M</button>
+            <button onclick="filterBySize('L')" class="w-full text-left px-4 py-2 hover:bg-gray-200">L</button>
+            <button onclick="filterBySize('XL')" class="w-full text-left px-4 py-2 hover:bg-gray-200">XL</button>
+            <button onclick="filterBySize('all')" class="w-full text-left px-4 py-2 hover:bg-gray-200">All</button>
+          </div>
+        </div>
+
+        <!-- Price Dropdown -->
+        <div class="relative">
+          <button onclick="togglePriceMenu()" class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300">Price</button>
+          <div id="price-menu" class="hidden absolute bg-white shadow-lg rounded mt-2 py-2 w-32 z-10">
+            <button onclick="filterByPrice('300-400')" class="w-full text-left px-4 py-2 hover:bg-gray-200">300-400</button>
+            <button onclick="filterByPrice('400-500')" class="w-full text-left px-4 py-2 hover:bg-gray-200">400-500</button>
+            <button onclick="filterByPrice('500-600')" class="w-full text-left px-4 py-2 hover:bg-gray-200">500-600</button>
+            <button onclick="filterByPrice('600+')" class="w-full text-left px-4 py-2 hover:bg-gray-200">600+</button>
+          </div>
+        </div>
+
+        <!-- Promotion Dropdown -->
+        <div class="relative">
+          <button onclick="togglePromotionMenu()" class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300">Promotion</button>
+          <div id="promotion-menu" class="hidden absolute bg-white shadow-lg rounded mt-2 py-2 w-32 z-10">
+            <button onclick="filterByPromotion(true)" class="w-full text-left px-4 py-2 hover:bg-gray-200">On Sale</button>
+            <button onclick="filterByPromotion(false)" class="w-full text-left px-4 py-2 hover:bg-gray-200">Not on Sale</button>
+            <button onclick="filterByPromotion(null)" class="w-full text-left px-4 py-2 hover:bg-gray-200">All</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="relative mt-3 md:mt-0">
+        <input 
+          type="text" 
+          class="px-4 py-2 border border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-[#2a443f]" 
+          placeholder="Search...">
+        <button 
+          onclick="searchProducts()" 
+          class="absolute right-0 top-0 px-4 py-2 bg-[#2a443f] text-white rounded-r hover:bg-green-700">
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-4">New Arrivals</h1>
+    <p class="text-gray-600 mb-6">The largest selection of urban brands online, only on Morriqua.com!</p>
+
+    <!-- Products Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+      <!-- Example Product 1 -->
+      <div class="product bg-white p-4 rounded shadow" data-size="S" data-price="150" data-sale="true">
+        <img src="./image/pic2.jfif" alt="Product 1" class="w-full h-80 object-cover rounded mb-4">
+        <h2 class="text-lg font-bold">Product 1</h2>
+        <p class="text-gray-600">Product description.</p>
+        <p class="text-gray-600 font-bold">Price: 150</p>
+        <p class="promotion-animate text-red-500">On Sale</p>
+        <button class="mt-4 px-4 py-2 bg-[#2a443f] text-white rounded hover:bg-green-700">Buy</button>
+        <button 
+        class="favorite-btn text-gray-500 mt-4 hover:text-red-500 transition-colors"
+        onclick="toggleFavorite(this, 'Product 1', 'https://via.placeholder.com/150', 150)">
+        <i class="fa fa-heart"></i>
+
+      </div><div class="product bg-white p-4 rounded shadow" data-size="S" data-price="150" data-sale="true">
+        <img src="./image/5.jpg" alt="Product 1" class="w-full h-80 object-cover rounded mb-4">
+        <h2 class="text-lg font-bold">Product 1</h2>
+        <p class="text-gray-600">Product description.</p>
+        <p class="text-gray-600 font-bold">Price: 150</p>
+        <p class="promotion-animate text-red-500">On Sale</p>
+        <button 
+        class="favorite-btn text-gray-500 mt-4 hover:text-red-500 transition-colors"
+        onclick="toggleFavorite(this, 'Product 1', 'https://via.placeholder.com/150', 150)">
+        <i class="fa fa-heart"></i>
+        <button class="mt-4 px-4 py-2 bg-[#2a443f] text-white rounded hover:bg-green-700">Buy</button>
+
+      </div><div class="product bg-white p-4 rounded shadow" data-size="S" data-price="150" data-sale="true">
+        <img src="./" alt="Product 1" class="w-full h-80 object-cover rounded mb-4">
+        <h2 class="text-lg font-bold">Product 1</h2>
+        <p class="text-gray-600">Product description.</p>
+        <p class="text-gray-600 font-bold">Price: 150</p>
+        <p class="promotion-animate text-red-500">On Sale</p>
+        <button class="mt-4 px-4 py-2 bg-[#2a443f] text-white rounded hover:bg-green-700">Buy</button>
+      </div>
+
+      <!-- Example Product 2 -->
+      <div class="product bg-white p-4 rounded shadow" data-size="M" data-price="250" data-sale="false">
+        <img src="https://via.placeholder.com/150" alt="Product 2" class="w-full h-80 object-cover rounded mb-4">
+        <h2 class="text-lg font-bold">Product 2</h2>
+        <p class="text-gray-600">Product description.</p>
+        <p class="text-gray-600 font-bold">Price: 250</p>
+        <button class="mt-4 px-4 py-2 bg-[#2a443f] text-white rounded hover:bg-green-700">Buy</button>
+      </div>
+      <div class="product bg-white p-4 rounded shadow" data-size="M" data-price="250" data-sale="false">
+        <img src="https://via.placeholder.com/150" alt="Product 2" class="w-full h-80 object-cover rounded mb-4">
+        <h2 class="text-lg font-bold">Product 2</h2>
+        <p class="text-gray-600">Product description.</p>
+        <p class="text-gray-600 font-bold">Price: 250</p>
+        <button class="mt-4 px-4 py-2 bg-[#2a443f] text-white rounded hover:bg-green-700">Buy</button>
+      </div>
+      <div class="product bg-white p-4 rounded shadow" data-size="M" data-price="250" data-sale="false">
+        <img src="https://via.placeholder.com/150" alt="Product 2" class="w-full h-80 object-cover rounded mb-4">
+        <h2 class="text-lg font-bold">Product 2</h2>
+        <p class="text-gray-600">Product description.</p>
+        <p class="text-gray-600 font-bold">Price: 250</p>
+        <button class="mt-4 px-4 py-2 bg-[#2a443f] text-white rounded hover:bg-green-700">Buy</button>
+      </div>
+      
+      <!-- Example Product 3 -->
+      <div class="product bg-white p-4 rounded shadow" data-size="L" data-price="350" data-sale="true">
+        <img src="https://via.placeholder.com/150" alt="Product 3" class="w-full h-80 object-cover rounded mb-4">
+        <h2 class="text-lg font-bold">Product 3</h2>
+        <p class="text-gray-600">Product description.</p>
+        <p class="text-gray-600 font-bold">Price: 350</p>
+        <p class="promotion-animate text-red-500">On Sale</p>
+        <button class="mt-4 px-4 py-2 bg-[#2a443f] text-white rounded hover:bg-green-700">Buy</button>
+      </div>
+      <div class="product bg-white p-4 rounded shadow" data-size="L" data-price="350" data-sale="true">
+        <img src="https://via.placeholder.com/150" alt="Product 3" class="w-full h-80 object-cover rounded mb-4">
+        <h2 class="text-lg font-bold">Product 3</h2>
+        <p class="text-gray-600">Product description.</p>
+        <p class="text-gray-600 font-bold">Price: 350</p>
+        <p class="promotion-animate text-red-500">On Sale</p>
+        <button class="mt-4 px-4 py-2 bg-[#2a443f] text-white rounded hover:bg-green-700">Buy</button>
+      </div>
+      <div class="product bg-white p-4 rounded shadow" data-size="L" data-price="350" data-sale="true">
+        <img src="https://via.placeholder.com/150" alt="Product 3" class="w-full h-80 object-cover rounded mb-4">
+        <h2 class="text-lg font-bold">Product 3</h2>
+        <p class="text-gray-600">Product description.</p>
+        <p class="text-gray-600 font-bold">Price: 350</p>
+        <p class="promotion-animate text-red-500">On Sale</p>
+        <button class="mt-4 px-4 py-2 bg-[#2a443f] text-white rounded hover:bg-green-700">Buy</button>
+      </div>
+      <div class="product bg-white p-4 rounded shadow" data-size="L" data-price="350" data-sale="true">
+        <img src="https://via.placeholder.com/150" alt="Product 3" class="w-full h-80 object-cover rounded mb-4">
+        <h2 class="text-lg font-bold">Product 3</h2>
+        <p class="text-gray-600">Product description.</p>
+        <p class="text-gray-600 font-bold">Price: 350</p>
+        <p class="promotion-animate text-red-500">On Sale</p>
+        <button class="mt-4 px-4 py-2 bg-[#2a443f] text-white rounded hover:bg-green-700">Buy</button>
+        <button 
+        class="favorite-btn text-gray-500 mt-4 hover:text-red-500 transition-colors"
+        onclick="toggleFavorite(this, 'Product 1', 'https://via.placeholder.com/150', 150)">
+        <i class="fa fa-heart"></i>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

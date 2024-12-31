@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
+    rel="stylesheet" />
+    <!-- <link rel="icon" type="image/png" href="image/splash_logo.jpg"> -->
+    <link rel="icon" type="image/png" href="image/splash_logo.png">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/tw-elements/css/tw-elements.min.css" />
+  <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        fontFamily: {
+          sans: ["Roboto", "sans-serif"],
+          body: ["Roboto", "sans-serif"],
+          mono: ["ui-monospace", "monospace"],
+        },
+      },
+      corePlugins: {
+        preflight: false,
+      },
+    };
+  </script>
+  <title>Admin Page</title>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="max-w-4xl mx-auto mt-10 bg-white shadow-md rounded-lg p-6">
+    <header class="mb-6 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-gray-800">Admin Page - Product Management</h1>
+      <a href="home.html" class="text-blue-500 hover:text-blue-600 font-semibold text-lg">Home</a>
+    </header>
+    
+    <!-- Product Form -->
+    <section class="mb-6">
+      <form id="productForm" class="flex gap-4 items-center">
+        <input type="hidden" id="productId" />
+        <input 
+          type="text" 
+          id="productName" 
+          placeholder="Enter product name" 
+          class="flex-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+        <input 
+          type="number" 
+          id="productPrice" 
+          placeholder="Enter price" 
+          class="w-32 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+        <input 
+          type="file" 
+          id="productFile" 
+          class="w-48 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          accept="image/*,video/*"
+        />
+        <button 
+          type="submit" 
+          id="addButton" 
+          class="px-6 py-2 bg-[#2a443f] text-white rounded-md hover:bg-[#3b5f4b] transition"
+        >
+          Add Product
+        </button>
+      </form>
+    </section>
+    
+    <!-- Product Table -->
+    <section>
+      <h2 class="text-xl font-semibold text-gray-700 mb-4">Product List</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200 text-left">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-2">ID</th>
+              <th class="border border-gray-200 px-4 py-2">Name</th>
+              <th class="border border-gray-200 px-4 py-2">Price</th>
+              <th class="border border-gray-200 px-4 py-2">Media</th>
+              <th class="border border-gray-200 px-4 py-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productTable">
+            <!-- Dynamic content will be added here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    let products = []; // Array to store product data
+    let currentEditIndex = null;
+
+    // DOM Elements
+    const productForm = document.getElementById("productForm");
+    const productTable = document.getElementById("productTable");
+    const productIdInput = document.getElementById("productId");
+    const productNameInput = document.getElementById("productName");
+    const productPriceInput = document.getElementById("productPrice");
+    const productFileInput = document.getElementById("productFile");
+    const addButton = document.getElementById("addButton");
+
+    // Add or Update Product
+    productForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = productNameInput.value.trim();
+      const price = parseFloat(productPriceInput.value).toFixed(2);
+      const file = productFileInput.files[0] ? productFileInput.files[0] : null; // Store the file object
+
+      if (currentEditIndex !== null) {
+        // Update existing product
+        products[currentEditIndex] = { 
+          id: products[currentEditIndex].id, 
+          name, 
+          price, 
+          file
+        };
+        currentEditIndex = null;
+        addButton.textContent = "Add Product";
+      } else {
+        // Add new product
+        const id = products.length + 1;
+        products.push({ 
+          id, 
+          name, 
+          price, 
+          file
+        });
+      }
+
+      renderTable();
+      productForm.reset();
+    });
+
+    // Render Product Table
+    function renderTable() {
+      productTable.innerHTML = "";
+      products.forEach((product, index) => {
+        let filePreview = "No file";
+        
+        // If there's a file, generate a preview
+        if (product.file) {
+          if (product.file.type.startsWith("image/")) {
+            filePreview = `<img src="${URL.createObjectURL(product.file)}" alt="${product.file.name}" class="w-16 h-16 object-cover">`;
+          } else if (product.file.type.startsWith("video/")) {
+            filePreview = `<video class="w-16 h-16" controls><source src="${URL.createObjectURL(product.file)}" type="${product.file.type}">Your browser does not support the video tag.</video>`;
+          }
+        }
+
+        const row = `
+          <tr class="hover:bg-gray-100">
+            <td class="border border-gray-200 px-4 py-2">${product.id}</td>
+            <td class="border border-gray-200 px-4 py-2">${product.name}</td>
+            <td class="border border-gray-200 px-4 py-2">$${product.price}</td>
+            <td class="border border-gray-200 px-4 py-2">${filePreview}</td>
+            <td class="border border-gray-200 px-4 py-2">
+              <button class="px-4 py-2 bg-yellow-400 text-white rounded-md hover:bg-yellow-500 transition" onclick="editProduct(${index})">Edit</button>
+              <button class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition" onclick="deleteProduct(${index})">Delete</button>
+            </td>
+          </tr>
+        `;
+        productTable.insertAdjacentHTML("beforeend", row);
+      });
+    }
+
+    // Edit Product
+    window.editProduct = (index) => {
+      const product = products[index];
+      currentEditIndex = index;
+      productNameInput.value = product.name;
+      productPriceInput.value = product.price;
+      addButton.textContent = "Update Product";
+    };
+
+    // Delete Product
+    window.deleteProduct = (index) => {
+      products.splice(index, 1);
+      renderTable();
+    };
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
+</body>
+</html>

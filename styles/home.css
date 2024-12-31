@@ -1,0 +1,416 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F3FBF5;
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #222; */
+    /* border: solid #2a443f 1px; */
+    height: 50px;
+    color: white;
+    padding: 15px 30px;
+    margin-top: 10px;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+   
+}
+.logo{
+    margin-right:30px;
+}
+.site-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2a443f;
+    margin-right: 20px;
+}
+a{
+    text-decoration: none;
+}
+.search-bar {
+    flex-grow: 1;
+    margin: 0 15px;
+}
+.search-bar input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 15px;
+    border: 1px solid #4F8075;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+}
+.menu-icons {
+    display: flex;
+    align-items: center;
+}
+.menu-icons img {
+    width: 25px;
+    height: 25px;
+    margin-left: 30px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+#quote{
+    position: absolute;
+    margin-top: 30px;
+    left: 730px;
+    color: #4F8075;
+}
+
+/* Bannière */
+#titre {
+    color: white;
+    background-color: #2a443f;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+.banner {
+    width: 100%;
+    display: block;
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+/* Sections avec images et textes */
+.section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: #F3FBF5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.section img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+}
+.section-content {
+    padding: 30px;
+    flex: 1;
+}
+.section-content h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+.section-content p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-weight: 200 ;
+}
+.section-content a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #57e6ad;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 180px;
+}
+.section-content a:hover {
+    background-color:#3DDAB7;
+}
+
+/* .footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+    margin-top: 40px;
+} */
+
+/* #reverse {
+    flex-direction: row-reverse;
+}
+.footer h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.social-icons img {
+    width: 25px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.footer-links {
+    margin: 20px 0;
+}
+.footer-links a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+.footer-links a:hover {
+    text-decoration: underline;
+}
+.footer-bottom {
+    margin-top: 15px;
+    font-size: 12px;
+} */
+footer {
+    background-color:  #1d4d43;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin-top: 100px;
+    /* background-color: #282828; */
+   
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    height: 300px;
+}
+.footer-section {
+    width: 23%;
+}
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+.footer-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+.footer-section input[type="email"] {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+}
+.footer-section button {
+    display: block;
+    width: 80%;
+    padding: 10px;
+    background-color: #14a592;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.footer-section button:hover {
+    background-color: #5df0dc;
+}
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #1b1b1b;
+}
+.footer-bottom a {
+    color: #14a592;
+    text-decoration: none;
+}
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+/* ______________________ */
+.carousel-container {
+    background-color: #b8dbc2;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+}
+.carousel-title {
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.carousel-card {
+    background-color: white;
+    width: 220px;
+    margin: 0 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+}
+.carousel-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+.carousel-card p {
+    font-size: 14px;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+.carousel-arrow {
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+}
+.carousel-arrow:hover {
+    color: #57e6ad;
+}
+.carousel-indicators {
+    margin-top: 15px;
+}
+.indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: #ccc;
+    cursor: pointer;
+}
+.indicator.active {
+    background-color: black;
+}
+#titre a:hover {
+    color: #00ff88; 
+}
+#titre a {
+    text-decoration: none;
+    color: #ffffff; 
+    font-weight: bold;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+/* #brand{
+    text-align: center;
+    color: #57e6ad;
+} */
+#brand {
+    text-align: center;
+    font-size: 4rem; /* Adjust for desired size */
+    background: linear-gradient(90deg, #57e6ad, #3d9f8c, #64b5f6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    font-family: 'Abhaya Libre', serif; 
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 20px 20;
+    letter-spacing: 50px; /* Adds spacing for a modern feel */
+    background-size: 200% 100%; /* Makes the gradient large enough to animate */
+    animation: gradientMove 5s infinite linear; /* Smooth animation */
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+
+/* ________________________________ */
+.account-menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Icône utilisateur */
+.account-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Menu déroulant caché par défaut */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px; /* Ajustez selon la taille de l'icône */
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+/* Style des liens dans le menu */
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Affiche le menu au survol */
+.account-menu-container:hover .dropdown-menu {
+    display: block;
+}
+
+
+
+/* Style général des liens dans le menu */
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Animation fluide */
+}
+
+/* Changer la couleur au survol */
+.dropdown-menu a:hover {
+    background-color: #3d9f8c;
+    color: white; /* Optionnel : rendre le texte blanc pour plus de contraste */
+}
+
+/* Appliquer la couleur au lien sélectionné */
+.dropdown-menu a.active {
+    background-color: #3d9f8c;
+    color: white;
+}

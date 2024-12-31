@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="image/splash_logo.png">
+  <title>MORRIQUA</title>
+  <style>
+    /* Splash Screen Styles */
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 110vh;
+      background-color: #ffffff; /* Background color */
+      font-family: Arial, sans-serif;
+    }
+
+    #splash-screen img {
+      /* width: 100%;
+      height: 100%; */
+      object-fit: cover; 
+    }
+  </style>
+</head>
+<body>
+  <div id="splash-screen">
+    <img src="./image/splash_logo.png" alt="Logo">
+  </div>
+
+  <script>
+    setTimeout(() => {
+      window.location.href = "home.html"; 
+    }, 6000); 
+  </script>
+</body>
+</html>

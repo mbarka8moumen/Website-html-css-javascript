@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MORRIQUA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="styles/home.css">
+   <!-- <link rel="icon" type="image/png" href="image/splash_logo.jpg"> -->
+   <link rel="icon" type="image/png" href="image/splash_logo.png">
+   <style>
+       /* Add smooth scrolling */
+       html {
+           scroll-behavior: smooth;
+       }
+   </style>
+</head>
+<body>
+    <!-- splash-screen -->
+    <!-- En-tête -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="image/splash_logo.png" style="width: 30px;" alt="logo" class="logo"> 
+            <a href="home.html">
+            <span class="site-name">MORRIQUA</span></a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Rechercher...">
+        </div>
+        <div class="menu-icons">
+            <a href="#">
+                <img src="image/location.png" alt="Adresse">
+            </a>
+            
+            <div class="account-menu-container">
+                <a href="Account.html">
+                    <img src="image/user.png" alt="Profil" class="account-icon">
+                </a>
+                <!-- <div class="dropdown-menu">
+                    <a href="Account.html">Sign In</a>
+                    <a href="Account.html">Sign Up</a>
+                </div> -->
+            </div>
+            <a href="#">
+                <img src="image/Heart.png" alt="Favoris">
+            </a>
+            <a href="payment.html">
+                <img src="image/shopping.png" alt="Panier">
+            </a>    
+        </div>
+    </header>
+
+    <!-- Bannière -->
+    <h3 id="titre">
+        <a href="#trending-section" onclick="handleClick()">TRENDING</a> | 
+        <a href="traditionnel.html" class="text-blue-500 hover:text-blue-600 font-semibold text-lg">TRADITIONNAL</a> | 
+        <a href="Moderne.html" onclick="handleClick()">MODERNE</a>
+    </h3>
+    <img src="image/MORIQUA_BACK.jpg" alt="MORIQUA_BACK" class="banner">
+
+    <!-- Contenu principal -->
+    <main class="container">
+        <!-- Section 1 -->
+        <section class="section">
+            <img src="image/1.jfif" alt="Rich Textures">
+            <div class="section-content">
+                <p>
+                    Discover the rich textures, intricate patterns, and deep-rooted history woven into each piece of our traditional collection.
+                </p>
+                <a href="traditionnel.html">DISCOVER NOW</a>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="section" id="reverse">
+            <img src="image/3.jpg" alt="Style Contemporain">
+            <div class="section-content">
+                <p>
+                    Embrace contemporary cuts, vibrant colors, and versatile designs that blend comfort with a modern edge.
+                </p>
+                <a href="Moderne.html">GO FOR IT</a>
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="section">
+            <img src="image/5.jpg" alt="Tenue Quotidienne">
+            <div class="section-content">
+                <p>
+                    Traditional outfit featuring a white tunic and trousers, paired with a black velvet robe adorned with intricate gold embroidery along the edges and cuffs.
+                </p>
+                <a href="traditionnel.html">EXPLORE MORE</a>
+            </div>
+        </section> 
+        
+        <!-- Trending Section -->
+        <div class="carousel-container" id="trending-section">
+            <h3 class="carousel-title">TRENDING : NEW SEASON STYLE</h3>
+            <div class="carousel">
+                <div class="carousel-arrow">&lt;</div>
+                <div class="carousel-card">
+                    <img src="image/PIC1 (2).jfif" alt="Men's Casual">
+                    <p>Men’s Casual Shacket – Stylish, minimal, with functional pockets</p>
+                </div>
+                <div class="carousel-card">
+                    <img src="image/pic2.jfif" alt="Elegant Moroccan Jabador">
+                    <p>Elegant Moroccan Jabador – Traditional green embroidery, flowing design</p>
+                </div>
+                <div class="carousel-card">
+                    <img src="image/pic3.jfif" alt="Modern Minimalist Look">
+                    <p>Modern Minimalist Look – Cream sweater, white pants</p>
+                </div>
+            </div>
+            <div class="carousel-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Help and Information</h4>
+                <ul>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Delivery & Returns</a></li>
+                    <li><a href="#">Site Map</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">Who We Are</a></li>
+                    <li><a href="#">Careers at MoriQua</a></li>
+                    <li><a href="#">Our Values</a></li>
+                    <li><a href="#">Customer Reviews</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Shopping From</h4>
+                <p>You’re in <strong>Morocco</strong></p><br>
+                <h4>Accepted Currencies</h4><br>
+                <ul>
+                    <li>USD - US Dollar</li>
+                    <li>EUR - Euro</li>
+                    <li>MAD - Moroccan Dirham</li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Subscribe to Our Newsletter</h4>
+                <p>Get the latest updates, offers, and promotions.</p>
+                <input type="email" placeholder="Enter your email" />
+                <button>Subscribe</button>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            &copy; 2023 <strong>MORIQUA</strong>. Tous droits réservés. 
+            <p>Designed with &#10084; by <a href="#">MoriQua</a></p>
+        </div>
+    </footer>
+</body>
+</html>
